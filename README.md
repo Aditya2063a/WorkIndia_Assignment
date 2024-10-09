@@ -66,6 +66,8 @@ The project requires the following npm packages:
 - **nodemon** (dev): A development tool that automatically restarts the server when file changes are detected.
   - Install with: `npm install nodemon`
 
+---
+
 ### Available API
 
 - **POST /api/register**: Register a new user.
