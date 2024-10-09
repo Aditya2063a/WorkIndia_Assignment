@@ -49,3 +49,31 @@ The project ensures race condition handling while booking seats, with only one u
 - `jsonwebtoken`: ^9.0.2
 - `async-mutex`: ^0.5.0
 - `nodemon`: ^3.1.7
+
+### Available Endpoints
+
+- **POST /api/register**: Register a new user.
+  - Request body: `{ "username": "string", "password": "string" }`
+  - Response: Success message and user data.
+
+- **POST /api/login**: Log in and get a JWT token.
+  - Request body: `{ "username": "string", "password": "string" }`
+  - Response: JWT token for authentication.
+
+- **POST /api/book_seat**: Book a seat on a train (JWT required).
+  - Request header: `Authorization: Bearer <JWT token>`
+  - Request body: `{ "train_id": "number" }`
+  - Response: Booking confirmation and seat details.
+
+- **POST /api/add_train**: Add a new train to the system (Admin only, API key required).
+  - Request header: `x-api-key: <Admin API Key>`
+  - Request body: `{ "train_id": "number", "source": "string", "destination": "string", "total_seats": "number" }`
+  - Response: Success message and train details.
+
+- **GET /api/trains**: Get a list of all available trains.
+  - Response: List of trains with details including seat availability.
+
+- **GET /api/bookings**: View all bookings made by the logged-in user (JWT required).
+  - Request header: `Authorization: Bearer <JWT token>`
+  - Response: List of bookings with booking details.
+
