@@ -50,6 +50,22 @@ The project ensures race condition handling while booking seats, with only one u
 - `async-mutex`: ^0.5.0
 - `nodemon`: ^3.1.7
 
+### Dependencies
+
+The project requires the following npm packages:
+
+- **express**: A minimal and flexible Node.js web application framework.
+  - Install with: `npm install express`
+
+- **jsonwebtoken**: Used to sign, verify, and decode JSON Web Tokens (JWT) for user authentication.
+  - Install with: `npm install jsonwebtoken`
+
+- **async-mutex**: A library to implement mutex locks for handling race conditions during seat bookings.
+  - Install with: `npm install async-mutex`
+
+- **nodemon** (dev): A development tool that automatically restarts the server when file changes are detected.
+  - Install with: `npm install --save-dev nodemon`
+
 ### Available Endpoints
 
 - **POST /api/register**: Register a new user.
