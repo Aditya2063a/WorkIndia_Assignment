@@ -66,7 +66,7 @@ The project requires the following npm packages:
 - **nodemon** (dev): A development tool that automatically restarts the server when file changes are detected.
   - Install with: `npm install nodemon`
 
-### Available Endpoints
+### Available API
 
 - **POST /api/register**: Register a new user.
   - Request body: `{ "username": "string", "password": "string" }`
@@ -93,3 +93,84 @@ The project requires the following npm packages:
   - Request header: `Authorization: Bearer <JWT token>`
   - Response: List of bookings with booking details.
 
+---
+
+## Testing the API with Postman
+
+You can test all the endpoints using **Postman** by following these steps:
+
+1. **Install Postman**: If you don't have Postman installed, you can download it from [Postman Download](https://www.postman.com/downloads/).
+
+2. **Testing Endpoints**:
+
+   - **Register a new user**:
+     - Method: `POST`
+     - URL: `http://localhost:3000/api/register`
+     - Body (JSON):
+       ```json
+       {
+         "username": "your_username",
+         "password": "your_password"
+       }
+       ```
+     - Expected Response: A success message and user data.
+
+   - **Login**:
+     - Method: `POST`
+     - URL: `http://localhost:3000/api/login`
+     - Body (JSON):
+       ```json
+       {
+         "username": "your_username",
+         "password": "your_password"
+       }
+       ```
+     - Expected Response: A JWT token for authentication.
+     - **Save the token** for subsequent API requests.
+
+   - **Add a new train (Admin only)**:
+     - Method: `POST`
+     - URL: `http://localhost:3000/api/add_train`
+     - Headers:
+       - `x-api-key`: Your Admin API key
+     - Body (JSON):
+       ```json
+       {
+         "train_id": 1,
+         "source": "Station A",
+         "destination": "Station B",
+         "total_seats": 100
+       }
+       ```
+     - Expected Response: A success message with train details.
+
+   - **Check available trains**:
+     - Method: `GET`
+     - URL: `http://localhost:3000/api/trains`
+     - Expected Response: A list of available trains.
+
+   - **Book a seat on a train**:
+     - Method: `POST`
+     - URL: `http://localhost:3000/api/book_seat`
+     - Headers:
+       - `Authorization`: Bearer `<Your JWT token>`
+     - Body (JSON):
+       ```json
+       {
+         "train_id": 1
+       }
+       ```
+     - Expected Response: A booking confirmation with seat details.
+
+   - **View all bookings (for logged-in users)**:
+     - Method: `GET`
+     - URL: `http://localhost:3000/api/bookings`
+     - Headers:
+       - `Authorization`: Bearer `<Your JWT token>`
+     - Expected Response: A list of all bookings made by the user.
+
+3. **Make sure the server is running**:
+   - Start the server by running `node index.js` in your terminal before making any requests via Postman.
+   - All API requests should point to `http://localhost:3000`.
+
+By using Postman, you can interact with all the API endpoints, verify their functionality, and ensure the JWT-based authentication and race condition handling work as expected.
