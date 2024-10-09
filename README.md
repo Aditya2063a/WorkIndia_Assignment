@@ -64,7 +64,7 @@ The project requires the following npm packages:
   - Install with: `npm install async-mutex`
 
 - **nodemon** (dev): A development tool that automatically restarts the server when file changes are detected.
-  - Install with: `npm install --save-dev nodemon`
+  - Install with: `npm install nodemon`
 
 ### Available Endpoints
 
