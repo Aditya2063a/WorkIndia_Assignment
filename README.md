@@ -35,3 +35,17 @@ The project ensures race condition handling while booking seats, with only one u
    ```bash
    git clone https://github.com/your-repo/railway-management-system.git
    cd railway-management-system
+   
+2. **Start the project**
+
+   ```bash
+   npm install
+   npm run dev
+
+
+### Dependencies and Libraries:
+- `dotenv`: ^16.4.5
+- `express`: ^4.21.0
+- `jsonwebtoken`: ^9.0.2
+- `async-mutex`: ^0.5.0
+- `nodemon`: ^3.1.7
