@@ -33,8 +33,8 @@ The project ensures race condition handling while booking seats, with only one u
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-repo/railway-management-system.git
-   cd railway-management-system
+   git clone https://github.com/Aditya2063a/WorkIndia_Assignment.git
+   cd WorkIndia_Assignment
    
 2. **Start the project**
 
